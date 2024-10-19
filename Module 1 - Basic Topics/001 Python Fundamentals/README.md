@@ -58,4 +58,6 @@ Now that we have everything set up, let's run our first program:
 #### What’s Next?
 Now that you’ve set up Python and run your first program, you're ready to dive deeper. In the next section, we’ll explore **Variables and Data Types**—the building blocks of any Python program. Understanding how to store and manipulate data is key to writing more complex and powerful programs. Let’s continue the journey!
 
+!["Next Lecture"](../../Next.png)
+
 ---
