@@ -38,11 +38,15 @@ Now that we have everything set up, let's run our first program:
    ```python
    print("Hello, World!")
    ```
+   !["Python Code"](Python-Code.png)
+   
 3. Save the file, and then run it by opening the terminal in VS Code (View > Terminal) and typing:
    ```bash
    python hello.py
    ```
    You should see `Hello, World!` displayed in the terminal.
+
+   !["Python Execution"](Code-Execution.png)
 
    Alternatively, you can simply run the code (f5) and see the result in the terminal.
    **NOTE: This repo assumes you have installed Python and Python Extension in VS Code.**
