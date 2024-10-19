@@ -23,7 +23,7 @@ I am Wasiq Khan, a lifelong learner and tech person. I simply love to teach what
 
 By the end of next 3 - 4 months, so you will see yourself a different person in Python Insha'Allah! 
 
-**So let’s go!**
+[![Let's Start](../../Start.png)](https://github.com/wasiqs-classics/Python-Lectures-Github/tree/master/Module%201%20-%20Basic%20Topics)
 
 Oh yes! Share this with your friends. After 100 stars I will start video lectures as well on my YouTube Channel. 
         
