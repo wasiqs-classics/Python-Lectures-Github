@@ -30,6 +30,8 @@ Before we dive into coding, let’s set up the environment needed to write and r
    - Open VS Code, go to the Extensions panel (Ctrl+Shift+X), and search for "Python."
    - Install the Python extension provided by Microsoft for features like IntelliSense, linting, and debugging.
 
+!["Python Extension"](Python-Extension-In-VS-Code.png)
+
 #### Running Your First Python Program: Hello World
 Now that we have everything set up, let's run our first program:
 
