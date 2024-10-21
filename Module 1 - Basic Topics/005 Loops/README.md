@@ -204,6 +204,12 @@ while True:
 
 ```
 
+## Pattern Making with Loops
+Making pattern with loops is a great practice and we can leverage nested loops and some logics to generate some cool patterns using python. 
+Here is a good video on this topic:
+
+[![Watch the video](https://img.youtube.com/vi/k8SXsT5TLxQ/0.jpg)](https://www.youtube.com/watch?v=k8SXsT5TLxQ)
+
 ---
 
 ### Exercise
