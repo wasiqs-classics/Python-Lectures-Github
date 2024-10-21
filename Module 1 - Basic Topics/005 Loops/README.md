@@ -204,6 +204,11 @@ while True:
 
 ```
 
+## Output
+![Screen 1](restaurent-screen1.png)
+![Screen 2](restaurent-screen1.png)
+
+
 ## Pattern Making with Loops
 Making pattern with loops is a great practice and we can leverage nested loops and some logics to generate some cool patterns using python. 
 Here is a good video on this topic:
