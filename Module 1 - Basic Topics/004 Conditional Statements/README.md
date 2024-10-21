@@ -136,4 +136,4 @@ Try these tasks to test your understanding:
 
 Conditional statements are the backbone of decision-making in programming. By mastering `if-else`, `elif`, and ternary operators, you can make your programs smarter and more dynamic. In the next lesson, we’ll explore **Loops**, which will allow you to repeat actions in your programs, automating tasks and making your code more efficient. Read more!
 
-[![Next Lecture](../../Previous.png)](https://github.com/wasiqs-classics/Python-Lectures-Github/tree/master/Module%201%20-%20Basic%20Topics/003%20Operators)       [![Next Lecture](../../Next.png)](https://github.com/wasiqs-classics/Python-Lectures-Github/tree/master/Module%201%20-%20Basic%20Topics/003%20Operators)
+[![Next Lecture](../../Previous.png)](https://github.com/wasiqs-classics/Python-Lectures-Github/tree/master/Module%201%20-%20Basic%20Topics/003%20Operators)       [![Next Lecture](../../Next.png)](https://github.com/wasiqs-classics/Python-Lectures-Github/tree/master/Module%201%20-%20Basic%20Topics/005%20Loops)
