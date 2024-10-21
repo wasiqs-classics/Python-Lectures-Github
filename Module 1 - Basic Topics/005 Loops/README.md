@@ -61,14 +61,6 @@ while attempts > 0:
 ```
 *Real-world example*: Password attempt system with limited retries.
 
-**Example (Pattern Generation)**:
-```python
-i = 5
-while i > 0:
-    print("*" * i)
-    i -= 1
-```
-*Pattern generation*: This prints an inverted triangle of stars.
 
 ---
 
