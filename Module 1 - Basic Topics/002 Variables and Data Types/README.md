@@ -171,6 +171,31 @@ General Syntax:
    ```
 **NOTE: There is a complete section on Type Hints in Module 2 and we will discover further there. However you can [check this link](https://mypy.readthedocs.io/en/stable/cheat_sheet_py3.html) for further understanding of the concept of Type Hints.**
 
+## Python Inputs
+It is often required to take input from the users.
+Use the `input()` function to receive user input. Whatever the user types is returned as a string.
+
+```python
+name = input("Enter your name: ")
+print(f"Hello, {name}!")
+```
+**Type Conversions for Numeric Inputs:** Since `input()` returns a string, you might need to convert this string to another type, such as an integer or float.
+
+**Converting to an Integer:**
+```python
+age = input("Enter your age: ")
+age = int(age)  # Convert the input string to an integer
+print(f"You are {age} years old.")
+```
+**Converting to a Float:**
+```python
+height = input("Enter your height in meters: ")
+height = float(height)  # Convert the input string to a float
+print(f"Your height is {height} meters.")
+```
+Using `int()` and `float()`, you can convert strings to numeric types and handle calculations. Always validate inputs in real-world programs to manage errors and exceptions for smooth execution.
+
+
 ---
 
 ### Exercise: Practice What You’ve Learned
