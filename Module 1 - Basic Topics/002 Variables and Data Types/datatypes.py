@@ -12,6 +12,9 @@ salary = 2000.00
 # Boolean
 is_Married = True
 
+print(id(age)) # printing the memory address of variable age
+print(id(name)) # printing the memory address of variable name
+
 # Checking for Type of the variable
 print(f"The type of the name variable is: {type(name)}")
 print(f"The type of the salary variable is: {type(salary)}")
