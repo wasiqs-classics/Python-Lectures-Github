@@ -56,3 +56,11 @@ sentence = "tum yaha se dafa hojao"
 
 print(restricted_word.lower() in sentence)
 
+# Even / Odd Checker
+
+number = 11
+
+if (number % 2 == 0):
+    print("Even number")
+else: 
+    print("Odd number")

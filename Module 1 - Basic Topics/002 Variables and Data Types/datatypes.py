@@ -26,6 +26,7 @@ salary = int(salary)
 # Now checking the type again. 
 print(f"The type of the salary variable is: {type(salary)}")
 
+
 # Constants
 PI = 3.14159
 GRAVITY = 9.8
