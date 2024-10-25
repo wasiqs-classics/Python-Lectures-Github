@@ -122,6 +122,7 @@ print(escaped_string)  # Output: She said, "Hello!"
 ## Important String Methods
 
 **count()**
+--------
 **Description:** Returns the number of non-overlapping occurrences of a substring in a string.
 
 **Example:**
@@ -133,6 +134,7 @@ print(escaped_string)  # Output: She said, "Hello!"
 **Use Case:** Useful for counting specific characters or substrings in a larger string, like counting word frequencies in text analysis.
 
 **encode()**
+--------
 **Description:** Encodes the string using the specified encoding. By default, it’s UTF-8.
 
 **Example:**
@@ -144,7 +146,7 @@ print(escaped_string)  # Output: She said, "Hello!"
 **Use Case:** Often used in preparing text data for transmission over the internet or storage in binary files.
 
 **decode()**
-
+--------
 **Description:** Decodes the encoded string back to a regular string.
 
 **Example:**
@@ -156,7 +158,7 @@ print(escaped_string)  # Output: She said, "Hello!"
 **Use Case:** Useful when receiving or reading encoded data that needs to be transformed back into a string.
 
 **find()**
-
+--------
 **Description:** Returns the lowest index in the string where the substring is found. Returns -1 if the substring is not found.
 
 **Example:**
@@ -168,7 +170,7 @@ print(escaped_string)  # Output: She said, "Hello!"
 **Use Case:** Useful for locating substrings within a string. Unlike `index()`, it doesn’t raise an error if the substring is not found.
 
 **index()**
-
+--------
 **Description:** Similar to `find()`, but raises a `ValueError` if the substring is not found.
 
 **Example:**
@@ -181,7 +183,7 @@ print(escaped_string)  # Output: She said, "Hello!"
 **Use Case:** Use it when you expect the substring to be found and want to handle the error explicitly if it's not.
 
 **rfind()**
-
+--------
 **Description:** Returns the highest index in the string where the substring is found. Returns -1 if the substring is not found.
 
 **Example:**
@@ -193,7 +195,7 @@ print(escaped_string)  # Output: She said, "Hello!"
 **Use Case:** Useful for finding the last occurrence of a substring.
 
 **rindex()**
-
+--------
 **Description:** Similar to `rfind()`, but raises a `ValueError` if the substring is not found.
 
 **Example:**
