@@ -22,14 +22,17 @@ for keyword in query_list:
         for db_item in db:
             db_item_words = db_item.split(' ')
             for words_in_current_db_item in db_item_words:
-                if keyword.lower() in words_in_current_db_item.lower():
+                if keyword.lower() in words_in_current_db_item.lower() and db_item not in query_result:
                     query_result.append(db_item)
 
+result_count = 0
 if len(query_result) != 0:
     print()
     print(f"Displaying {len(query_result)} items: ")
+    print("==========================")
     for result in query_result:
-        print(result)
+        print(f"{result_count + 1}. {result}")
+        result_count += 1
 else:
     print("No result found")
 
