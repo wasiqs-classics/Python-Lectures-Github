@@ -349,7 +349,7 @@ Debugging and error handling are essential programming skills that improve your 
 
 In the next lecture, we’ll dive into **Functions**, where you’ll learn to read from and write to files programmatically. Good luck, and happy debugging!
 
-[![Prev Lecture](../../Previous.png)](https://github.com/wasiqs-classics/Python-Lectures-Github/tree/master/Module%201%20-%20Basic%20Topics/007%20Collectables)       [![Next Lecture](../../Next.png)](https://github.com/wasiqs-classics/Python-Lectures-Github/tree/master/Module%202%20-%20Intermediate%20Topics/009%20Functions)
+[![Prev Lecture](../../Previous.png)](https://github.com/wasiqs-classics/Python-Lectures-Github/tree/master/Module%202%20-%20Intermediate%20Topics)       [![Next Lecture](../../Next.png)](https://github.com/wasiqs-classics/Python-Lectures-Github/tree/master/Module%202%20-%20Intermediate%20Topics/009%20Functions)
 
 
 
