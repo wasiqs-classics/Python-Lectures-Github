@@ -173,7 +173,184 @@ When the `try` statement does not raise an exception, code enters into the `else
    else:
     print(f"Your answer is {result}")
    ```
+   
+**Finally Keyword**
+
+The `finally` keyword in the try-except block is always executed, irrespective of whether there is an exception or not. In simple words, the `finally` block of code is run after the try, except, the else block is final. It is quite useful in cleaning up resources and closing the object, especially closing the files.
+
+![Courtesy: Data Camp.](https://images.datacamp.com/image/upload/v1677233778/try%20except%20else%20finally%20in%20Python.png)
+
+
+```python
+
+try:
+    k = 5//0 
+    print(k)
+
+except ZeroDivisionError:
+    print("Can't divide by zero")
+
+finally:
+    print('This is always executed')
+
+```
+
+Similarly, consider this example to understand the difference between `else` and `finally` better.
+
+```python
+    x = int(input("Enter x: "))
+    y = int(input("Enter y: "))
+    try:
+        result = x/y
+    except ZeroDivisionError:
+        print("Please change 'y' argument to non-zero value")
+    except:
+        print("Something went wrong")
+    else:
+        print(f"Your answer is {result}")
+    finally:
+        print("Code is executed.")
+
+```
+Note: `finally` will always be executed irrespective of the result.
 
 ---
+
+### Raising Exceptions
+
+As a Python developer, you have the option to throw an exception if certain conditions are met. It allows you to interrupt the program based on your requirement. 
+
+To throw an exception, we have to use the `raise` keyword followed by an exception name. 
+
+Consider this:
+
+```python
+value = 2_000
+if value > 1_000:   
+    # raise the ValueError
+    raise ValueError("Please add a value lower than 1,000")
+else:
+    print("Congratulations! You are the winner!!")
+```
+
+In the example, we are raising the ValueError error if the value is greater than 1,000. We have changed the value to 2,000, which has made the `if` statement TRUE and raised ValueError with the custom message. The custom error message helps you figure out the problem quickly. 
+
+**Handling raised exception example**
+
+We can also create our custom exception and handle the exception by using the try-except block. 
+
+In the example, we have added a value error example under the `try` statement.  
+
+So, how will it work? Instead of throwing the exception and terminating the program, it will display the error message that we have provided.
+
+```python
+value = 2_000
+try:
+    if value > 1_000:
+          
+        # raise the ValueError
+        raise ValueError("Please add a value lower than 1,000")
+    else:
+        print("Congratulations! You are the winner!!")
+              
+# if false then raise the value error
+except ValueError as e:
+        print(e)
+```
+
+### Defining Custom Exceptions
+
+You can create custom exceptions for specific use cases by subclassing Python’s built-in `Exception` class.
+
+**Example**:
+```python
+class InvalidAgeError(Exception):
+    pass
+
+def validate_age(age):
+    if age < 0:
+        raise InvalidAgeError("Age cannot be negative!")
+    print(f"Valid age: {age}")
+
+try:
+    validate_age(-5)
+except InvalidAgeError as e:
+    print(e)
+```
+
+---
+
+### Debugging Techniques
+
+1. **Using Print Statements**:
+   - Insert `print()` to trace variable values and execution flow.
+
+2. **Using Debuggers**:
+   - Python’s `pdb` module or IDE-integrated debuggers allow step-by-step execution.
+   ```python
+   import pdb; pdb.set_trace()
+   ```
+
+3. **Using `assert` Statements**:
+   - Ensure certain conditions are met during execution.
+   ```python
+   assert 2 + 2 == 4, "Math is broken!"
+   ```
+
+4. **Logging**:
+   - Replace print statements with the `logging` module for better tracking.
+   ```python
+   import logging
+   logging.basicConfig(level=logging.DEBUG)
+   logging.debug("This is a debug message")
+   ```
+
+---
+
+### Practice Problems
+
+1. **Identify and Fix Errors**:
+   ```python
+   def divide(a, b):
+       return a / b
+
+   print(divide(10, 0))
+   ```
+
+2. **Handle Multiple Exceptions**:
+   - Write a function to accept user input and convert it to an integer, handling both `ValueError` and `KeyboardInterrupt`.
+
+3. **Create a Custom Exception**:
+   - Build a program to validate a password (e.g., at least 8 characters). Raise a custom exception if the validation fails.
+
+4. **Debugging Exercise**:
+   - Add logging and print statements to this code:
+   ```python
+   def calculate_area(shape, dimension):
+       if shape == "circle":
+           return 3.14 * dimension ** 2
+       elif shape == "square":
+           return dimension * dimension
+       else:
+           return "Unknown shape"
+
+   print(calculate_area("triangle", 5))
+   ```
+
+---
+
+### Conclusion
+
+Debugging and error handling are essential programming skills that improve your code’s reliability and robustness. By mastering exception handling, understanding tracebacks, and using debugging tools effectively, you’re now equipped to handle a wide range of errors in your programs.
+
+**Additional Reading**:
+- [Python Exceptions](https://docs.python.org/3/tutorial/errors.html)
+- [Python Debugging](https://realpython.com/python-debugging-pdb/)
+
+In the next lecture, we’ll dive into **Functions**, where you’ll learn to read from and write to files programmatically. Good luck, and happy debugging!
+
+[![Prev Lecture](../../Previous.png)](https://github.com/wasiqs-classics/Python-Lectures-Github/tree/master/Module%201%20-%20Basic%20Topics/007%20Collectables)       [![Next Lecture](../../Next.png)](https://github.com/wasiqs-classics/Python-Lectures-Github/tree/master/Module%202%20-%20Intermediate%20Topics/009%20Functions)
+
+
 
 
