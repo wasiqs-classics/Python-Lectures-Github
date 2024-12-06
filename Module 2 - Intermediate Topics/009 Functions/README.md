@@ -1,4 +1,5 @@
 ### Lecture 009: Functions in Python
+![Python Functions Syntax](https://miro.medium.com/v2/resize:fit:1200/1*IdSHO7WNuqxofYvYMIkhew.png)
 
 ---
 
@@ -20,7 +21,7 @@ Functions are reusable blocks of code designed to perform a specific task. They 
 
 ### Creating Functions in Python
 
-![Python Functions](https://www.boardinfinity.com/blog/content/images/2023/02/Python-Function-1.png)
+![Python Functions Syntax](https://www.boardinfinity.com/blog/content/images/2023/02/Python-Function-1.png)
 
 **Syntax**:
 ```python
