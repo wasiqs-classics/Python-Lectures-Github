@@ -20,6 +20,8 @@ Functions are reusable blocks of code designed to perform a specific task. They 
 
 ### Creating Functions in Python
 
+![Python Functions](https://www.boardinfinity.com/blog/content/images/2023/02/Python-Function-1.png)
+
 **Syntax**:
 ```python
 def function_name(parameters):
