@@ -42,6 +42,7 @@ def function_name(parameters):
 ```
 
 Let's consider this example. 
+
 **Example**:
 ```python
 def greet(name):
@@ -51,6 +52,13 @@ def greet(name):
 print(greet("Alice"))  # Output: Hello, Alice!
 ```
 This function `greet` accepts a parameter name, which is used to personalize a greeting. The `return` statement outputs a formatted string `Hello, {name}!`. When `greet("Alice")` is called, the function replaces `{name}` with `"Alice"`, producing `"Hello, Alice!"`, which is printed.
+
+NOTE: All the functions must be called to see them in action. 
+
+### Calling a Function
+To call a function, use the function name followed by parenthesis (which may include the arguments). In the example above, `greet("Alice")` is when we called the function. 
+- We first define a function, this is where we write its code.
+- Then we make use it. Its called calling a function.  
 
 ---
 
@@ -65,7 +73,7 @@ In positional parameters, Parameters are matched based on their order in the fun
 
    print(add(3, 5))  # Output: 8
    ```
-**Example:** `add(3, 5)` passes 3 to the first parameter and 5 to the second.
+ **Example:** `add(3, 5)` passes 3 to the first parameter and 5 to the second.
 
 2. **Named Parameters**:
 Parameters are specified by name, improving clarity.
@@ -91,7 +99,7 @@ Parameters with default values used if no argument is provided.
 
    print(greet())  # Output: Welcome, Guest!
    ```
-**Example**: def `greet(name="Guest")` sets name to `"Guest"` when no value is given.
+ **Example**: def `greet(name="Guest")` sets name to `"Guest"` when no value is given.
 
 4. **Arbitrary Arguments (`*args`)**:
   Allows functions to accept any number of positional arguments, grouped as a tuple.
@@ -102,7 +110,7 @@ Parameters with default values used if no argument is provided.
 
    display("Alice", "Bob", "Charlie")
    ```
-   **Example:** `def sum_all(*args)` lets you sum any number of numbers. *Can you make the function?* 
+    **Example:** `def sum_all(*args)` lets you sum any number of numbers. *Can you make the function?* 
 
 5. **Arbitrary Keyword Arguments (`**kwargs`)**:
 Accepts any number of named arguments as a dictionary.
@@ -113,10 +121,22 @@ Accepts any number of named arguments as a dictionary.
 
    info(name="Alice", age=25, city="New York")
    ```
-* **Example:** def info(**kwargs) can handle inputs like info(name="Alice", age=25).
+ * **Example:** def info(**kwargs) can handle inputs like info(name="Alice", age=25).
 ---
 
-### Return Values in Functions
+### Returning Values in Functions
+Functions in python may and may not return values. 
+
+A function can perform actions, print outputs, or modify data without returning a value. However, when a function does return something, it sends the result back to the caller.
+
+**Example**: 
+```python
+def greet_user(name):
+    """Greet a user with their name."""
+    print(f"Hello, {name}!")
+
+greet_user("Alice")  # Outputs: Hello, Alice!
+```
 
 Functions can return a single value or multiple values.
 
@@ -129,12 +149,29 @@ print(square(4))  # Output: 16
 ```
 
 **Multiple Values**:
+When a function returns multiple values in Python, the return type is a `tuple` by default. For example: 
+
 ```python
 def stats(numbers):
     return min(numbers), max(numbers), sum(numbers)
 
 print(stats([1, 2, 3]))  # Output: (1, 3, 6)
 ```
+You can explicitly define the return type based on your preference, such as a list, dictionary, or any other object. For example:
+```python
+def get_numbers():
+    return [1, 2, 3]
+
+print(get_numbers())  # Output: [1, 2, 3]
+```
+Or return a dictionary 
+```python
+def get_user():
+    return {"name": "Alice", "age": 25, "email": "alice@example.com"}
+
+print(get_user())  # Output: {'name': 'Alice', 'age': 25, 'email': 'alice@example.com'}
+```
+Python's flexibility allows functions to return any data type you prefer, whether built-in types like lists and dictionaries or custom objects.
 
 ---
 
