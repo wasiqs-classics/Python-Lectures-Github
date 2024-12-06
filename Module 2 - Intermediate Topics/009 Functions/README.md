@@ -121,7 +121,8 @@ Accepts any number of named arguments as a dictionary.
 
    info(name="Alice", age=25, city="New York")
    ```
- * **Example:** def info(**kwargs) can handle inputs like info(name="Alice", age=25).
+**Example:** def info(**kwargs) can handle inputs like info(name="Alice", age=25).
+
 ---
 
 ### Returning Values in Functions
@@ -177,6 +178,10 @@ Python's flexibility allows functions to return any data type you prefer, whethe
 
 ### Functions with Collections
 
+You can send any data types of argument to a function (string, number, list, dictionary etc.), and it will be treated as the same data type inside the function.
+
+E.g. if you send a List as an argument, it will still be a List when it reaches the function:
+
 **Working with Lists**:
 ```python
 def double_list(lst):
@@ -198,6 +203,12 @@ print(update_dict({}, "name", "Alice"))  # Output: {'name': 'Alice'}
 
 ### Anonymous Functions (Lambda)
 
+In Python, a lambda function is a special type of function without the function name. A lambda function is a small anonymous function. A lambda function can take any number of arguments, but can only have one expression.
+
+Syntax:
+We use the lambda keyword instead of def to create a lambda function. Here's the syntax to declare the lambda function.
+> lambda argument(s) : expression
+
 Lambda functions are concise, single-expression functions.
 
 **Example**:
@@ -206,18 +217,82 @@ square = lambda x: x ** 2
 print(square(5))  # Output: 25
 ```
 
+Lambda functions can take any number of arguments:
+
+```python
+x = lambda a, b : a * b
+print(x(5, 6))
+```
+or
+```python
+# lambda that accepts one argument
+greet_user = lambda name : print('Hey there,', name)
+
+# lambda call
+greet_user('Delilah')
+
+# Output: Hey there, Delilah
+```
+In the above example, we have assigned a lambda function to the greet_user variable. 
+Here, name after the lambda keyword specifies that the lambda function accepts the argument named name.
+
 **Use Case in Sorting**:
 ```python
 data = [("Alice", 25), ("Bob", 20), ("Charlie", 30)]
 sorted_data = sorted(data, key=lambda x: x[1])
 print(sorted_data)  # Output: [('Bob', 20), ('Alice', 25), ('Charlie', 30)]
 ```
+### Explanation
+This example demonstrates sorting a list of tuples based on a specific key using Python's `sorted()` function.
+
+1. **Input Data**:  
+   `data` is a list of tuples where each tuple contains a name and an age:  
+   `[("Alice", 25), ("Bob", 20), ("Charlie", 30)]`.
+
+2. **Sorting Logic**:  
+   The `sorted()` function is used to sort the list. The `key` argument specifies a function that determines the sort order.  
+   Here, `lambda x: x[1]` is an anonymous function that takes a tuple `x` and returns its second element (age).
+
+3. **Output**:  
+   The tuples are sorted by age:  
+   `sorted_data = [('Bob', 20), ('Alice', 25), ('Charlie', 30)]`.
 
 ---
 
 ### Recursive Functions
 
 A recursive function calls itself to solve problems in smaller steps.
+In Python, we know that a function can call other functions. It is even possible for the function to call itself. These types of construct are termed as recursive functions.
+
+The following image shows the working of a recursive function called recurse.
+![Python recursive function](https://www.programiz.com/sites/tutorial2program/files/python-recursion-function.png)
+
+Creating a recursive function requires careful planning to ensure it executes correctly and avoids infinite recursion. Below are the key considerations and steps:
+
+### 1. **Define the Problem**
+   - Understand how the problem can be broken into smaller subproblems of the same type.
+   - Ensure the smaller subproblems eventually reach a trivial state.
+
+### 2. **Base Case**
+   - **Purpose**: Prevent infinite recursion by defining a stopping point.  
+   - **Example**: In a factorial calculation, when `n == 0`, the recursion stops:
+     ```python
+     if n == 0:
+         return 1
+     ```
+
+### 3. **Recursive Case**
+   - Define how the function will call itself with a smaller or simpler input.
+   - Ensure the inputs progress toward the base case to terminate recursion.
+
+### 4. **Combine Results**
+   - If recursion generates partial results, combine them to get the final output.
+   - Example in summing elements: Combine the result of the smaller subproblem with the current element.
+
+### 5. **Verify Termination**
+   - Ensure all recursive paths eventually reach the base case. Failing this may lead to infinite recursion and a stack overflow.
+
+## Examples
 
 **Factorial**:
 ```python
@@ -228,6 +303,23 @@ def factorial(n):
 
 print(factorial(5))  # Output: 120
 ```
+1. **Base Case**: `n == 0`, returns `1`.
+2. **Recursive Case**: Multiplies `n` by `factorial(n - 1)`.
+
+### Example: Sum of a List
+```python
+def sum_list(nums):
+    # Base Case
+    if not nums:
+        return 0
+    # Recursive Case
+    return nums[0] + sum_list(nums[1:])
+
+print(sum_list([1, 2, 3, 4]))  # Output: 10
+```
+
+1. **Base Case**: If the list is empty, return `0`.
+2. **Recursive Case**: Add the first element to the sum of the rest of the list.
 
 **Fibonacci Sequence**:
 ```python
@@ -238,6 +330,9 @@ def fibonacci(n):
 
 print(fibonacci(6))  # Output: 8
 ```
+**Can you** find the base case ad recursive case in the above example?
+
+Recursive functions, when used thoughtfully, are powerful for tasks like traversing trees, solving divide-and-conquer problems, and performing repetitive calculations.
 
 ---
 
