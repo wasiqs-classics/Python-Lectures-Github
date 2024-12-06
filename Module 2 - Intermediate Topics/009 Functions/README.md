@@ -425,6 +425,31 @@ atm()
 4. Define a function that accepts `*args` and returns their sum.
 5. Write a function to generate Fibonacci numbers up to a given number.
 
+### Additional Exercises
+Here are additional practice questions for functions in Python:
+
+1. **Prime Checker**: Write a function that checks if a given number is prime and returns `True` or `False`.
+
+2. **Palindrome Checker**: Create a function that determines if a string is a palindrome.
+
+3. **Find Maximum**: Implement a function that takes a list of numbers and returns the largest number without using Python's built-in `max()` function.
+
+4. **Custom Greeting**: Define a function that accepts a name and a time of day (morning, afternoon, evening) and returns a customized greeting.
+
+5. **Temperature Converter**: Write a function that converts temperatures between Celsius and Fahrenheit.
+
+6. **Word Frequency**: Create a function that takes a string and returns a dictionary with the frequency of each word in the string.
+
+7. **Factorial with Default Parameters**: Write a function that calculates the factorial of a number. If no number is provided, it should default to 5.
+
+8. **Reverse List**: Define a function that reverses a list without using built-in reverse methods.
+
+9. **Unique Elements**: Write a function that takes a list and returns a new list containing only unique elements.
+
+10. **Count Characters**: Implement a function that counts the number of each character in a string and returns the result as a dictionary.
+
+These questions will help reinforce concepts like recursion, default parameters, and working with different data types. Try! 
+
 ---
 
 ### Conclusion
