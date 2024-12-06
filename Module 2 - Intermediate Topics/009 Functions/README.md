@@ -10,6 +10,14 @@ Functions are reusable blocks of code designed to perform a specific task. They 
 - Simplify debugging and maintenance.
 - Encourage code reuse across different parts of a program.
 
+Suppose we want to create a program that runs an autonomous vehicle. So we can divide our program into different functions. 
+Like:
+ - A function to start the car
+ - A function to stop the car
+ - Separate functions to control accelerators, brakes, sterring wheel etc.
+
+> Dividing a complex problem into smaller chunks makes our program easy to understand and reuse.
+
 ---
 
 ### Types of Functions in Python
@@ -23,6 +31,8 @@ Functions are reusable blocks of code designed to perform a specific task. They 
 
 ![Python Functions Syntax](https://www.boardinfinity.com/blog/content/images/2023/02/Python-Function-1.png)
 
+To create a function, use the `def` keyword followed by the function's name and parentheses containing optional parameters. The function body is indented and includes the logic you want to execute. The `return` statement sends a result back to the caller (optional). Functions can be reused, making code more modular and manageable.
+
 **Syntax**:
 ```python
 def function_name(parameters):
@@ -31,6 +41,7 @@ def function_name(parameters):
     return result  # Optional
 ```
 
+Let's consider this example. 
 **Example**:
 ```python
 def greet(name):
@@ -39,29 +50,51 @@ def greet(name):
 
 print(greet("Alice"))  # Output: Hello, Alice!
 ```
+This function `greet` accepts a parameter name, which is used to personalize a greeting. The `return` statement outputs a formatted string `Hello, {name}!`. When `greet("Alice")` is called, the function replaces `{name}` with `"Alice"`, producing `"Hello, Alice!"`, which is printed.
 
 ---
 
 ### Parameters in Functions
 
 1. **Positional Parameters**:
+In positional parameters, Parameters are matched based on their order in the function call.
+
    ```python
    def add(a, b):
        return a + b
 
    print(add(3, 5))  # Output: 8
    ```
+**Example:** `add(3, 5)` passes 3 to the first parameter and 5 to the second.
 
-2. **Default Parameters**:
+2. **Named Parameters**:
+Parameters are specified by name, improving clarity.
+
+```python
+def calculate_price(item, price, discount=0):
+    """Calculate the price after applying a discount."""
+    final_price = price - (price * discount / 100)
+    return f"The price of {item} after a {discount}% discount is ${final_price:.2f}"
+
+# Calling with named parameters
+print(calculate_price(item="Laptop", price=1000, discount=10))
+print(calculate_price(price=500, item="Headphones", discount=5))
+```
+ - The parameters `item`, `price`, and `discount` are used with their names during the function call.
+ - This approach ensures clarity, especially when there are multiple parameters or default values.
+
+3. **Default Parameters**:
+Parameters with default values used if no argument is provided.
    ```python
    def greet(name="Guest"):
        return f"Welcome, {name}!"
 
    print(greet())  # Output: Welcome, Guest!
    ```
+**Example**: def `greet(name="Guest")` sets name to `"Guest"` when no value is given.
 
-3. **Arbitrary Arguments (`*args`)**:
-   - Allows passing multiple positional arguments.
+4. **Arbitrary Arguments (`*args`)**:
+  Allows functions to accept any number of positional arguments, grouped as a tuple.
    ```python
    def display(*args):
        for arg in args:
@@ -69,9 +102,10 @@ print(greet("Alice"))  # Output: Hello, Alice!
 
    display("Alice", "Bob", "Charlie")
    ```
+   **Example:** `def sum_all(*args)` lets you sum any number of numbers. *Can you make the function?* 
 
-4. **Arbitrary Keyword Arguments (`**kwargs`)**:
-   - Accepts multiple named arguments.
+5. **Arbitrary Keyword Arguments (`**kwargs`)**:
+Accepts any number of named arguments as a dictionary.
    ```python
    def info(**kwargs):
        for key, value in kwargs.items():
@@ -79,7 +113,7 @@ print(greet("Alice"))  # Output: Hello, Alice!
 
    info(name="Alice", age=25, city="New York")
    ```
-
+* **Example:** def info(**kwargs) can handle inputs like info(name="Alice", age=25).
 ---
 
 ### Return Values in Functions
