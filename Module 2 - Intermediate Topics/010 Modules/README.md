@@ -134,6 +134,8 @@ if __name__ == "__main__":
     print(greet("World"))  # Output: Hello, World!
 ```
       In this example, the `greet` function will only execute when `mymodule.py` is run directly, not when it's imported into another module.
+
+      Check this video as well: [What does if __name__ == '__main__' do in Python?](https://www.youtube.com/watch?v=x5IbdKnvt6k)
 ---
 
 ### How Python Finds Modules
