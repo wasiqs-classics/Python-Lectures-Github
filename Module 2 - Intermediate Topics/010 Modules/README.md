@@ -1,3 +1,5 @@
+![Modules](https://journaldev.nyc3.cdn.digitaloceanspaces.com/2017/07/Python-Modules.png)
+
 ### Lecture 10: Modules in Python
 
 ---
@@ -12,7 +14,9 @@ In Python, a **module** is a file containing Python code—such as functions, cl
 
 ### Benefits of Using Modules
 
-- **Reusability**: modules enable the reuse of code across different programs without redundancy.- **Maintainability**: eparating code into modules makes it easier to manage, update, and debug.- **Namespace Management**: odules help prevent naming conflicts by encapsulating functions and variables within their own namespaces.
+- **Reusability**: modules enable the reuse of code across different programs without redundancy.
+- **Maintainability**: eparating code into modules makes it easier to manage, update, and debug.
+- **Namespace Management**: odules help prevent naming conflicts by encapsulating functions and variables within their own namespaces.
 ---
 
 ### Importing Modules
@@ -20,34 +24,40 @@ In Python, a **module** is a file containing Python code—such as functions, cl
 Python provides several ways to import modules:
 
 1. **Importing an Entire Module**:
-   ``python
+   ```python
    import math
    print(math.sqrt(16))  # Output: 4.0
-   ```   his imports the entire `math` module, allowing access to its functions using the `math.` prefix.
+   ```
+   This imports the entire `math` module, allowing access to its functions using the `math.` prefix.
 2. **Importing Specific Attributes from a Module**:
-   ``python
+   ```python
    from math import pi, sqrt
    print(pi)         # Output: 3.141592653589793
    print(sqrt(16))   # Output: 4.0
-   ```   his imports specific functions or variables directly, eliminating the need for the module prefix.
+   ```
+   This imports specific functions or variables directly, eliminating the need for the module prefix.
 3. **Importing All Attributes from a Module**:
-   ``python
+   ```python
    from math import *
    print(sin(pi / 2))  # Output: 1.0
-   ```   his imports all functions and variables from the module into the current namespace. However, it's generally discouraged due to potential naming conflicts.
+   ```
+   This imports all functions and variables from the module into the current namespace. However, it's generally discouraged due to potential naming conflicts.
 4. **Importing a Module with an Alias**:
-   ``python
+   ```python
    import numpy as np
    array = np.array([1, 2, 3])
    print(array)  # Output: [1 2 3]
-   ```   his imports a module and assigns it a shorter alias for convenience.
+   ```
+   This imports a module and assigns it a shorter alias for convenience.
 ---
 
 ### Creating a Module
 
 To create a module:
 
-1. **Write Python Code**: efine functions, classes, or variables in a `.py` file.   ``python
+1. **Write Python Code**: Define functions, classes, or variables in a `.py` file.
+   ```python
+
    # mymodule.py
 
    def greet(name):
@@ -55,9 +65,9 @@ To create a module:
 
    pi = 3.14159
    ```
-2. **Save the File**: ave the file with a `.py` extension, e.g., `mymodule.py`.
-3. **Import and Use the Module**:
-   ``python
+3. **Save the File**: ave the file with a `.py` extension, e.g., `mymodule.py`.
+4. **Import and Use the Module**:
+   ```python
    # main.py
    import mymodule
 
@@ -113,7 +123,7 @@ Let's create a more detailed example:
 
 In Python, each module has a special built-in variable called `__name__`. When a module is run directly, `__name__` is set to `"__main__"`. This allows for code within the module to determine if it is being run as the main program or being imported elsewhere.
 **Example**:
-``python
+```python
 # mymodule.py
 
 def greet(name):
@@ -122,7 +132,8 @@ def greet(name):
 if __name__ == "__main__":
     # This block runs only if the module is executed directly
     print(greet("World"))  # Output: Hello, World!
-```n this example, the `greet` function will only execute when `mymodule.py` is run directly, not when it's imported into another module.
+```
+      In this example, the `greet` function will only execute when `mymodule.py` is run directly, not when it's imported into another module.
 ---
 
 ### How Python Finds Modules
@@ -190,14 +201,16 @@ Python supports two types of imports—**absolute** and **relative**—which hel
 ### Exploring Built-in Modules
 
 Python comes with a rich standard library of built-in modules that provide various functionalities.
+
 **Example**:
-``python
+```python
 import os
 
 # Get the current working directory
 cwd = os.getcwd()
 print(f"Current Working Directory: {cwd}")
-```his script uses the `os` module to retrieve and print the current working directory.
+```
+     This script uses the `os` module to retrieve and print the current working directory.
 ---
 
 ### Exercises
@@ -221,3 +234,5 @@ print(f"Current Working Directory: {cwd}")
 ---
 
 By mastering modules, you enhance your ability to write organized, reusable, and maintainable Python code, paving the way for more efficient and scalable programming practices. Remember! Modules are the cornerstone of writing modular, maintainable, and reusable code in Python. By understanding how to create, import, and utilize both built-in and custom modules—as well as mastering absolute and relative import strategies—you lay the groundwork for building scalable projects. Practice these concepts through the exercises, and soon you’ll be well-prepared to manage larger codebases and packages. Happy coding!
+
+[![Prev Lecture](../../Previous.png)](https://github.com/wasiqs-classics/Python-Lectures-Github/tree/master/Module%202%20-%20Intermediate%20Topics/009%20Functions)       [![Next Lecture](../../Next.png)](https://github.com/wasiqs-classics/Python-Lectures-Github/tree/master/Module%202%20-%20Intermediate%20Topics/011%20Pip%20-%20Package%20Manager)
