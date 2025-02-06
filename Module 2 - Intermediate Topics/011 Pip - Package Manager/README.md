@@ -1,3 +1,4 @@
+![Cover image](https://media.licdn.com/dms/image/v2/D5612AQHAUKwDFm3oxg/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1695482293859?e=2147483647&v=beta&t=D2MqjYLj9jOAcOrXCXVRlzKVvRF16HE0hgg4yy3p678)
 
 # Lecture 11: Package Managers
 
