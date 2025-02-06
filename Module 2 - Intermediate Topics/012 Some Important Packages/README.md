@@ -1,4 +1,4 @@
-
+![Important Packages](https://www.boardinfinity.com/blog/content/images/2023/05/Python-Libraries.png)
 ## Lecture 12: Important Python Packages
 
 ### Introduction
