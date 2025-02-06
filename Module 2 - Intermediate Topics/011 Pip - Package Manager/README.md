@@ -24,14 +24,15 @@ First, understand some core differences.
 
 ### 1. What are Packages?
 A Python package is a way of organizing related modules into a single directory hierarchy. It allows for a hierarchical file structure that is easy to navigate and manage. A package contains all the files you need for a module. 
-Example:
+*Example:*
+
 my_package/
-|-- __init__.py
-|-- module1.py
-|-- module2.py
-|-- subpackage/
-|  	 |-- __init__.py
-|   	|-- module3.py
+|-- __init__.py  
+|-- module1.py  
+|-- module2.py  
+|-- subpackage/  
+|----- __init__.py  
+|----- module3.py
 
 
 ### 2. What Are Package Managers?
