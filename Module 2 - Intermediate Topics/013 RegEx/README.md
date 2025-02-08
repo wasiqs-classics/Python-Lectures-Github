@@ -1,6 +1,6 @@
 ![Background](https://coderpad.io/wp-content/uploads/2022/04/coderpad-regex-the-complete-guide.jpg)
 
-## Lecture: Regular Expressions (RegEx) in Python
+## Lecture 13: Regular Expressions (RegEx) in Python
 
 ### 1. Introduction to RegEx
 
