@@ -1,4 +1,4 @@
-
+![Background](https://coderpad.io/wp-content/uploads/2022/04/coderpad-regex-the-complete-guide.jpg)
 
 ## Lecture: Regular Expressions (RegEx) in Python
 
@@ -6,7 +6,7 @@
 
 Regular Expressions (RegEx) are a powerful tool for pattern matching and text manipulation. They allow you to search, match, extract, and replace text based on complex patterns. Common use cases include data validation (e.g., email or phone number validation), text extraction, log file analysis, and more. In Python, the built-in `re` module provides functions to work with RegEx efficiently.
 
-Please refer to (this link)[https://github.com/wasiqs-classics/Code-Camp-Python-for-Data-Science-and-Machine-Learning/blob/master/Python%20Lect%2011%20-%20RegEx.pdf] for more info. 
+Please refer to [this link] (https://github.com/wasiqs-classics/Code-Camp-Python-for-Data-Science-and-Machine-Learning/blob/master/Python%20Lect%2011%20-%20RegEx.pdf) for more info. 
 
 ---
 
