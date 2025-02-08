@@ -1,202 +1,196 @@
 ![Background](https://coderpad.io/wp-content/uploads/2022/04/coderpad-regex-the-complete-guide.jpg)
 
-## Lecture 13: Regular Expressions (RegEx) in Python
-
-### 1. Introduction to RegEx
-
-Regular Expressions (RegEx) are a powerful tool for pattern matching and text manipulation. They allow you to search, match, extract, and replace text based on complex patterns. Common use cases include data validation (e.g., email or phone number validation), text extraction, log file analysis, and more. In Python, the built-in `re` module provides functions to work with RegEx efficiently.
-
 Please refer to [this link](https://github.com/wasiqs-classics/Code-Camp-Python-for-Data-Science-and-Machine-Learning/blob/master/Python%20Lect%2011%20-%20RegEx.pdf) for more info. 
+
+### **Lecture: Regular Expressions (RegEx) in Python**  
 
 ---
 
-### 2. Importing and Basic Usage
+## **1. Introduction to Regular Expressions**  
 
-To work with RegEx in Python, import the `re` module:
-  
+Regular Expressions (**RegEx**) are sequences of characters that define a **search pattern**. These patterns are used for **string validation, extraction, manipulation, and formatting** in textual data. Python provides the `re` module to work with regular expressions efficiently.
+
+### **Why Use Regular Expressions?**  
+- **String Validation**: Validate user inputs such as emails, phone numbers, and passwords.  
+- **Data Extraction**: Extract specific information such as dates, phone numbers, or URLs from a text.  
+- **Text Search and Replace**: Search for patterns in text and replace them with desired values.  
+- **Data Cleaning**: Remove unwanted characters or correct text formatting.  
+- **Log Analysis**: Extract timestamps, error codes, and messages from log files.  
+- **Web Scraping**: Extract useful data from web pages (HTML/XML).  
+
+---
+
+## **2. Importing and Using RegEx in Python**  
+
+To work with RegEx in Python, import the `re` module:  
+
 ```python
 import re
 ```
 
-You can use various functions from `re` such as `search()`, `match()`, and `findall()` to find patterns in text. For example, to check if a pattern exists in a string:
-
+### **Basic Example: Checking for a Pattern**
 ```python
-pattern = r"hello"
-text = "hello world"
-result = re.search(pattern, text)
+pattern = r"^p....n$"
+test_string = "python"
+
+result = re.match(pattern, test_string)
+
 if result:
     print("Pattern found!")
 else:
     print("Pattern not found.")
 ```
+💡 **Explanation**:
+- `^` → The string must start with 'p'.
+- `.` → Matches any character.
+- `$` → The string must end with 'n'.
+- ✅ `"python"` matches, but `"pokemon"` does not.
 
 ---
 
-### 3. Meta Characters and Special Sequences
+## **3. RegEx Meta Characters & Their Usage**  
 
-#### Meta Characters  
-These characters have special meanings in regular expressions:
+Meta characters are special symbols in RegEx that help define patterns.  
 
-- **`[]`**: Matches any single character inside the brackets.  
-  *Example*: `[abc]` matches either `a`, `b`, or `c`.
-
-- **`.`**: Matches any character except a newline.  
-  *Example*: `a.c` matches `abc`, `aXc`, etc.
-
-- **`^`**: Matches the start of the string.  
-  *Example*: `^Hello` matches strings that start with "Hello".
-
-- **`$`**: Matches the end of the string.  
-  *Example*: `world$` matches strings that end with "world".
-
-- **`*`**: Matches 0 or more repetitions of the preceding element.  
-  *Example*: `ab*` matches `a`, `ab`, `abb`, etc.
-
-- **`+`**: Matches 1 or more repetitions.  
-  *Example*: `ab+` matches `ab`, `abb`, etc.
-
-- **`?`**: Matches 0 or 1 occurrence of the preceding element (or makes quantifiers non-greedy).  
-  *Example*: `colou?r` matches both `color` and `colour`.
-
-- **`{}`**: Specifies an exact number or a range of occurrences.  
-  *Example*: `\d{3}` matches exactly three digits.
-
-- **`()`**: Groups expressions and captures the matched sub-pattern.  
-  *Example*: `(abc)+` matches one or more occurrences of "abc".
-
-- **`\|`**: Acts as an OR operator between multiple patterns.  
-  *Example*: `cat|dog` matches either "cat" or "dog".
-
-#### Special Sequences  
-Special sequences provide shortcuts for common character sets:
-
-- **`\A`**: Matches only at the start of the string.
-- **`\B`**: Matches where `\b` does not, i.e., not at the word boundary.
-- **`\b`**: Matches a word boundary (start or end of a word).
-- **`\d`**: Matches any digit; equivalent to `[0-9]`.
-- **`\D`**: Matches any non-digit.
-- **`\s`**: Matches any whitespace character (spaces, tabs, newlines).
-- **`\S`**: Matches any non-whitespace character.
-- **`\w`**: Matches any alphanumeric character and underscore; equivalent to `[a-zA-Z0-9_]`.
-- **`\W`**: Matches any character that is not alphanumeric or underscore.
-- **`\Z`**: Matches only at the end of the string.
+| **Meta Character** | **Description** | **Example** | **Matches** |
+|--------------------|----------------|-------------|-------------|
+| `[]` | Matches any character inside brackets | `[aeiou]` | 'a', 'e', 'i', 'o', 'u' |
+| `.` | Matches any character except a newline | `c.t` | 'cat', 'cut', 'cot' |
+| `^` | Matches the beginning of a string | `^Hello` | 'Hello world' |
+| `$` | Matches the end of a string | `world$` | 'Hello world' |
+| `*` | Matches **0 or more** occurrences | `ab*` | 'a', 'ab', 'abb', 'abbb' |
+| `+` | Matches **1 or more** occurrences | `ab+` | 'ab', 'abb', 'abbb' |
+| `?` | Matches **0 or 1** occurrences | `colou?r` | 'color', 'colour' |
+| `{}` | Matches a **specific range** of occurrences | `\d{2,4}` | '23', '234', '2345' |
+| `()` | Groups expressions together | `(abc)+` | 'abc', 'abcabc' |
+| `\|` | OR operator | `cat\|dog` | 'cat' or 'dog' |
 
 ---
 
-### 4. Character Sets and Their Use in RegEx
+## **4. Special Sequences in RegEx**  
 
-Within RegEx, **character sets** (defined using square brackets `[]`) allow you to match any one character from a specific set of characters. For example:
-  
-```python
-pattern = r"[aeiou]"  # Matches any one vowel.
-```
+Special sequences simplify RegEx patterns by using `\` followed by a character.  
 
-You can also define ranges:
-  
-```python
-pattern = r"[a-z]"    # Matches any lowercase letter.
-```
-
----
-
-### 5. Key Functions in the re Module
-
-- **`re.search()`**: Scans through a string and returns the first match.
-  
-  ```python
-  match = re.search(r"\d+", "There are 123 numbers")
-  if match:
-      print(match.group())  # Output: 123
-  ```
-
-- **`re.match()`**: Checks for a match only at the beginning of the string.
-  
-  ```python
-  match = re.match(r"Hello", "Hello world")
-  if match:
-      print("Match found")
-  ```
-
-- **`re.fullmatch()`**: Checks if the entire string matches the pattern.
-  
-  ```python
-  match = re.fullmatch(r"\d{3}-\d{2}-\d{4}", "123-45-6789")
-  if match:
-      print("Valid format")
-  ```
-
-- **`re.findall()`**: Returns all non-overlapping matches as a list.
-  
-  ```python
-  numbers = re.findall(r"\d+", "There are 123 numbers 456 here")
-  print(numbers)  # Output: ['123', '456']
-  ```
-
-- **`re.finditer()`**: Returns an iterator yielding match objects over all matches.
-- **`re.sub()`**: Replaces occurrences of the pattern with a specified replacement string.
+| **Special Sequence** | **Description** | **Example** | **Matches** |
+|----------------------|----------------|-------------|-------------|
+| `\A` | Start of a string | `\APython` | 'Python is easy' |
+| `\b` | Word boundary | `\bword\b` | 'word' but not 'wordy' |
+| `\B` | Not a word boundary | `\Bword` | 'sword' but not ' word' |
+| `\d` | Matches any digit (0-9) | `\d+` | '123', '4567' |
+| `\D` | Matches any non-digit | `\D+` | 'hello', 'abc' |
+| `\s` | Matches whitespace (space, tab, newline) | `\s+` | '   ', '\t' |
+| `\S` | Matches non-whitespace | `\S+` | 'Hello', 'World' |
+| `\w` | Matches alphanumeric characters | `\w+` | 'Python3' |
+| `\W` | Matches non-alphanumeric characters | `\W+` | '!@#$', ' ' |
+| `\Z` | End of a string | `Python\Z` | 'I love Python' |
 
 ---
 
-### 6. Practical Examples
+## **5. Character Sets in RegEx**  
 
-#### Example 1: Email Address Extraction
+Character sets allow for flexible matching by specifying multiple characters inside square brackets.
 
+| **Character Set** | **Description** | **Example** | **Matches** |
+|------------------|----------------|-------------|-------------|
+| `[abc]` | Matches 'a', 'b', or 'c' | `[aeiou]` | 'a', 'e', 'i', 'o', 'u' |
+| `[a-z]` | Matches any lowercase letter | `[a-z]` | 'a', 'b', 'c', ..., 'z' |
+| `[A-Z]` | Matches any uppercase letter | `[A-Z]` | 'A', 'B', 'C', ..., 'Z' |
+| `[0-9]` | Matches any digit | `[0-9]` | '0', '1', ..., '9' |
+| `[^abc]` | Matches any character **except** 'a', 'b', or 'c' | `[^0-9]` | Any non-digit |
+
+---
+
+## **6. Functions in the `re` Module**  
+
+### **`re.search()`** – Finds the first occurrence
 ```python
 import re
 
-text = "Please contact us at support@example.com or sales@company.org."
-pattern = r"[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+"
-emails = re.findall(pattern, text)
-print("Extracted emails:", emails)
-# Output: Extracted emails: ['support@example.com', 'sales@company.org']
+text = "I love Python 3.10"
+match = re.search(r"\d+\.\d+", text)
+
+if match:
+    print("Version found:", match.group())  # Output: Version found: 3.10
 ```
 
-#### Example 2: Phone Number Validation (Format: 03xx-xxxxxxxx)
-
+### **`re.match()`** – Matches from the beginning of the string
 ```python
 import re
 
-phone_pattern = r"^03\d{2}-\d{8}$"
-phone = "0300-12345678"
+match = re.match(r"Hello", "Hello world")
+print(match.group())  # Output: Hello
+```
+
+### **`re.findall()`** – Returns all matches as a list
+```python
+import re
+
+text = "There are 123 apples and 456 bananas."
+numbers = re.findall(r"\d+", text)
+print(numbers)  # Output: ['123', '456']
+```
+
+### **`re.sub()`** – Replaces patterns
+```python
+import re
+
+text = "Java is great. Java is popular."
+updated_text = re.sub(r"Java", "Python", text)
+print(updated_text)  # Output: Python is great. Python is popular.
+```
+
+---
+
+## **7. Practical Examples**  
+
+### **Example 1: Validating an Email Address**
+```python
+import re
+
+def is_valid_email(email):
+    pattern = r'^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$'
+    return bool(re.match(pattern, email))
+
+print(is_valid_email("wasiqonly@gmail.com"))  # Output: True
+```
+
+### **Example 2: Validating a Phone Number (Pakistan Format: 03xx-xxxxxxxx)**
+```python
+import re
+
+phone_pattern = r"^03\d{2}-\d{7}$"
+phone = "0312-1234567"
+
 if re.fullmatch(phone_pattern, phone):
     print("Valid phone number")
 else:
     print("Invalid phone number")
-# Output: Valid phone number
 ```
 
-#### Example 3: CNIC Number Validation (Format: xxxxx-xxxxxxx-x)
-
+### **Example 3: Extracting Dates**
 ```python
 import re
 
-cnic_pattern = r"^\d{5}-\d{7}-\d{1}$"
-cnic = "12345-1234567-1"
-if re.fullmatch(cnic_pattern, cnic):
-    print("Valid CNIC")
-else:
-    print("Invalid CNIC")
-# Output: Valid CNIC
-```
+text = "Meeting scheduled on 2024-05-15."
+date_match = re.search(r'\d{4}-\d{2}-\d{2}', text)
 
-#### Additional Example: Extracting All Phone Numbers from a Text
-
-```python
-import re
-
-text = "Call me at 0300-12345678 or at 0311-87654321."
-pattern = r"03\d{2}-\d{8}"
-phone_numbers = re.findall(pattern, text)
-print("Phone numbers found:", phone_numbers)
-# Output: Phone numbers found: ['0300-12345678', '0311-87654321']
+if date_match:
+    print("Meeting date:", date_match.group())  # Output: 2024-05-15
 ```
 
 ---
 
-### 7. Conclusion
+## **8. Exercises**  
 
-Regular Expressions in Python provide a robust method for handling text data. From validating formats such as emails, phone numbers, and CNICs to extracting meaningful data from large text blocks, mastering RegEx can significantly enhance your data processing and validation capabilities. Practice using the re module functions and experimenting with meta characters and special sequences to gain fluency. Happy pattern matching!
+1. Write a RegEx pattern to **validate passwords** (at least 8 characters, 1 uppercase, 1 lowercase, 1 number, 1 special character).  
+2. Extract all **email addresses** from a given text.  
+3. Validate **CNIC numbers** in the format `XXXXX-XXXXXXX-X`.  
+4. Extract all **URLs** from a paragraph of text.  
 
 ---
+
+## **9. Conclusion**  
+
+Regular Expressions are a powerful tool for working with textual data in Python. They allow for pattern-based searching, validation, and manipulation of strings. Mastering RegEx will greatly enhance your text-processing capabilities in Python. 🚀
 
 [![Prev Lecture](../../Previous.png)](https://github.com/wasiqs-classics/Python-Lectures-Github/tree/master/Module%202%20-%20Intermediate%20Topics/012%20Some%20Important%20Packages)       [![Next Lecture](../../Next.png)](https://github.com/wasiqs-classics/Python-Lectures-Github/tree/master/Module%202%20-%20Intermediate%20Topics/014%20JSON)
