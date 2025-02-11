@@ -1,4 +1,6 @@
-# **Lecture: File Handling in Python**  
+![Cover](https://infovistar.in/wp-content/uploads/2022/01/python-file-handling.png)
+
+# **Lecture 15: File Handling in Python**  
 
 ---
 
@@ -244,4 +246,4 @@ Click here:
 
 ---
 
-
+[![Prev Lecture](../../Previous.png)](https://github.com/wasiqs-classics/Python-Lectures-Github/tree/master/Module%202%20-%20Intermediate%20Topics/014%20JSON)       [![Next Lecture](../../Next.png)](https://github.com/wasiqs-classics/Python-Lectures-Github/tree/master/Module%202%20-%20Intermediate%20Topics/016%20Python%20With%20Type%20Hints)
