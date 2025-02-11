@@ -226,7 +226,8 @@ File handling is a fundamental skill in Python that enables **data storage, retr
 More details [can be found here](https://github.com/wasiqs-classics/Code-Camp-Python-for-Data-Science-and-Machine-Learning/blob/master/Python%20Lect%2010%20-%20Advance%20Python%20Topics%20-1.pdf)
 
 🚀 **Next Step:** Let's explore a complicated example which covers almost all the topics we went through earlier. 
-Click here: 
+
+Click here (For an example!)[https://github.com/wasiqs-classics/Python-Lectures-Github/blob/master/Module%202%20-%20Intermediate%20Topics/015%20File%20Handling/example.md]
 
 ---
 ## **12. Practice Exercises**  
