@@ -91,12 +91,47 @@ class SmartPhone:
         else:
             print("Error: Battery health has to be between 0 and 100")
 
+class DemoClass():
+    def __init__(self):
+        pass
 
-cell_phone = SmartPhone("Samsung", "S25", 999)
-cell_phone.display_info()
-print(f"Original Battery Health: {cell_phone.get_battery_health()}")
-cell_phone.update_battery_health(90)
-print(f"Updated Battery Health: {cell_phone.get_battery_health()}")
+class AndroidClass(SmartPhone):
+    # AndroidClass is a child class of SmartPhone Class (parent class)
+    def __init__(self, brand : str, model : str, price : float, andoird_version : str) -> None:
+        super().__init__(brand, model, price)
+        self.android_version = andoird_version
 
-print(type("Hello World"))
+    def display_info(self) -> None:
+        super().display_info()
+        print(f"Android Version: {self.android_version}")
 
+class IPhoneClass(SmartPhone):
+    def __init__(self, brand : str, model : str, price : float, iOS_version : str):
+        super().__init__(brand, model, price)
+        self.iOS_version = iOS_version
+
+    def display_info(self) -> None:
+        super().display_info()
+        print(f"iOS Version : {self.iOS_version}")
+        
+
+# cell_phone = SmartPhone("Samsung", "S25", 999)
+# cell_phone.display_info()
+# print(f"Original Battery Health: {cell_phone.get_battery_health()}")
+# cell_phone.update_battery_health(90)
+# print(f"Updated Battery Health: {cell_phone.get_battery_health()}")
+
+# print(type("Hello World"))
+
+# Create objects from base and derived classes
+phone_base = SmartPhone("TechBrand", "X100", 799.99)
+phone_android = AndroidClass("TechBrand", "X200", 899.99, "11.0")
+phone_ios = IPhoneClass("Apple", "iPhone 16", 1500, "20.0")
+phone_base.display_info()
+print()
+phone_android.display_info()
+print()
+phone_ios.display_info()
+
+name = "Wasiq"
+name.strip()
