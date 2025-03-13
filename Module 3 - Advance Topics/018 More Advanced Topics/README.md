@@ -609,6 +609,23 @@ These four concepts **enhance Python's flexibility and efficiency**:
 
 ---
 
+## **Sub Exercise**
+
+1️⃣ **Create a function `power_function(exp)`**  
+   - It should return a function that raises a number to the power `exp`.  
+   - Use **closures**.  
+
+2️⃣ **Create a decorator `@timeit`**  
+   - It should calculate the execution time of any function it decorates.  
+
+3️⃣ **Modify the Fibonacci generator**  
+   - Add a feature where it only yields **even Fibonacci numbers**.  
+
+4️⃣ **Write a generator `read_large_file(filename)`**  
+   - It should read a large file **line by line**, without loading the entire file into memory.  
+
+---
+
 
 ## 3. Map, Filter, and Reduce
 
