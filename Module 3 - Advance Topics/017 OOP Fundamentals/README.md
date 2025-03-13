@@ -175,7 +175,7 @@ phone.turn_on()
 phone.turn_off()
 ```
 
-For more details on abstraction: I have added a [lecture here]() for further review. 
+For more details on abstraction: I have added a [lecture here](https://github.com/wasiqs-classics/Python-Lectures-Github/blob/master/Module%203%20-%20Advance%20Topics/017%20OOP%20Fundamentals/Abstraction.md) for further review. 
 
 ---
 
