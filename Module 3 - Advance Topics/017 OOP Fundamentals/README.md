@@ -1,3 +1,4 @@
+![Python OOP](https://www.mtoag.com/wp-content/uploads/2023/12/opps.png)
 ## Python OOP: A Comprehensive Guide
 
 ### 1. Introduction to OOP
@@ -174,6 +175,8 @@ phone.turn_on()
 phone.turn_off()
 ```
 
+For more details on abstraction: I have added a [lecture here]() for further review. 
+
 ---
 
 ### 7. Summary
@@ -213,3 +216,5 @@ phone.turn_off()
 ## **Conclusion**
 
 Python’s OOP features empower you to write clean, modular, and reusable code. By mastering concepts like classes, objects, encapsulation, inheritance, polymorphism, and data abstraction, you build a strong foundation for creating complex applications. Practice with these exercises to deepen your understanding, and remember—OOP is all about modeling real-world entities in your code. Happy coding!
+
+[![Prev Lecture](../../Previous.png)](https://github.com/wasiqs-classics/Python-Lectures-Github/tree/master/Module%202%20-%20Intermediate%20Topics/016%20Python%20With%20Type%20Hints)       [![Next Lecture](../../Next.png)](https://github.com/wasiqs-classics/Python-Lectures-Github/tree/master/Module%203%20-%20Advance%20Topics/018%20More%20Advanced%20Topics)
