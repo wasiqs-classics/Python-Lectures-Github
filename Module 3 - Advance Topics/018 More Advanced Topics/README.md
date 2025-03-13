@@ -375,7 +375,7 @@ Decorators are functions that modify the behavior of other functions without per
 
 ```python
 # A simple decorator that logs function calls
-def logger(func):
+def decorator_function(func):
     def wrapper(*args, **kwargs):
         print(f"Calling {func.__name__} with {args}, {kwargs}")
         result = func(*args, **kwargs)
@@ -383,42 +383,232 @@ def logger(func):
         return result
     return wrapper
 
-@logger  # Decorator syntax
-def add(a: int, b: int) -> int:
+@decorator_function  # Decorator syntax
+def base_function() -> None:
+    print("Calling base function")
+
+base_function()
+```
+*Comments:*  
+- The `decorator_function` function wraps the `base_function` function to print details before and after its execution.
+
+**Example of a Simple Decorator:**
+
+```python
+
+def my_decorator(func):
+    def wrapper():
+        print("Something is happening before the function is called.")
+        func()
+        print("Something is happening after the function is called.")
+    return wrapper
+
+@my_decorator
+def say_hello():
+    print("Hello!")
+
+say_hello()
+
+```
+
+#### Need for Decorators
+- **Code Reusability** : Instead of repeating the same logic in multiple functions, you can encapsulate it in a decorator and reuse it wherever needed.
+- **Separation of Concerns** : Decorators allow you to separate cross-cutting concerns (e.g., logging, timing) from the core logic of your functions.
+- **Cleaner Code** : By abstracting away repetitive code into decorators, your main functions remain concise and focused on their primary purpose.
+- **Extensibility** : You can easily add or remove functionality by applying or removing decorators without modifying the original function.
+
+#### **How Decorators Work?**
+
+1. **Function Wrapping**: A decorator is essentially a higher-order function—a function that takes another function as input and returns a new function.
+2. **Closure**: The inner function (`wrapper`) inside the decorator captures the original function and any additional arguments or logic. This is achieved using closures.
+3. **Execution Flow**:
+   - When you apply a decorator to a function, the original function is passed to the decorator.
+   - The decorator modifies or extends the behavior of the function and returns a new function.
+   - When the decorated function is called, the modified function (returned by the decorator) is executed instead of the original function.
+
+##### Step-by-Step Execution:
+```python
+def my_decorator(func):
+    def wrapper():
+        print("Before the function call")
+        func()
+        print("After the function call")
+    return wrapper
+
+@my_decorator
+def greet():
+    print("Hello, World!")
+
+# Equivalent to:
+greet = my_decorator(greet)
+
+greet()
+```
+
+1. The `greet` function is passed to `my_decorator`.
+2. Inside `my_decorator`, the `wrapper` function is defined, which wraps the original `greet` function.
+3. The `wrapper` function is returned and replaces the original `greet` function.
+4. When `greet()` is called, the `wrapper` function is executed, adding extra behavior before and after calling the original `greet`.
+
+#### **Use Cases of Decorators**
+
+1. **Logging**: Track when and how functions are called.
+2. **Authentication and Authorization**: Restrict access to certain functions based on user roles.
+3. **Caching/Memoization**: Store results of expensive function calls to avoid redundant computations.
+4. **Performance Measurement**: Measure the execution time of functions.
+5. **Input Validation**: Validate inputs to functions before execution.
+6. **Retry Mechanism**: Automatically retry failed function calls.
+7. **Debugging**: Add debugging information to functions during development.
+
+---
+#### **Practical Examples**
+
+##### 1. **Logging Decorator**
+A decorator to log the execution of a function:
+```python
+def log_function_call(func):
+    def wrapper(*args, **kwargs):
+        print(f"Calling {func.__name__} with arguments {args} and {kwargs}")
+        result = func(*args, **kwargs)
+        print(f"{func.__name__} returned {result}")
+        return result
+    return wrapper
+
+@log_function_call
+def add(a, b):
     return a + b
 
 print(add(3, 5))
 ```
-*Comments:*  
-- The `logger` function wraps the `add` function to print details before and after its execution.
 
-### **Generators**
+**Output:**
+```
+Calling add with arguments (3, 5) and {}
+add returned 8
+8
+```
 
-#### **What Are They?**  
-Generators are functions that yield values one at a time using the `yield` keyword. They allow lazy evaluation and can handle large data sets efficiently.
-
-#### **Syntax & Examples:**
-
+##### 2. **Timing Decorator**
+A decorator to measure the execution time of a function:
 ```python
-# A generator that yields Fibonacci numbers up to n
+import time
+
+def timer(func):
+    def wrapper(*args, **kwargs):
+        start_time = time.time()
+        result = func(*args, **kwargs)
+        end_time = time.time()
+        print(f"{func.__name__} took {end_time - start_time:.4f} seconds to execute")
+        return result
+    return wrapper
+
+@timer
+def slow_function():
+    time.sleep(2)
+
+slow_function()
+```
+
+**Output:**
+```
+slow_function took 2.0023 seconds to execute
+```
+
+##### 3. **Access Control Decorator**
+A decorator to restrict access to certain users:
+```python
+def admin_only(func):
+    def wrapper(user, *args, **kwargs):
+        if user != "admin":
+            raise PermissionError("Only admins can access this function.")
+        return func(user, *args, **kwargs)
+    return wrapper
+
+@admin_only
+def sensitive_operation(user):
+    print(f"{user} is performing a sensitive operation.")
+
+sensitive_operation("admin")  # Works fine
+sensitive_operation("guest")  # Raises PermissionError
+```
+
+##### 4. Memoization with Decorators
+```python
+def memoize(func):
+    cache = {}
+    def wrapper(*args):
+        if args in cache:
+            print(f"Fetching from cache for {args}")
+            return cache[args]
+        result = func(*args)
+        cache[args] = result
+        return result
+    return wrapper
+
+@memoize
+def fibonacci(n):
+    if n < 2:
+        return n
+    return fibonacci(n - 1) + fibonacci(n - 2)
+
+print(fibonacci(10))  # Calculates and caches results
+print(fibonacci(10))  # Fetches from cache
+```
+
+
+### **4. Generators**  
+
+#### **What Are Generators?**  
+A **generator** is a special type of iterator that **yields values one at a time** instead of returning them all at once. It **saves memory** by generating values lazily.
+
+#### **Why Use Generators?**  
+- Efficient **memory usage** (useful for large datasets).  
+- Works well with **infinite sequences**.  
+- Used in **streaming data processing**.  
+
+#### **Syntax: Using `yield` Instead of `return`**
+```python
+def countdown(n: int):
+    while n > 0:
+        yield n
+        n -= 1
+
+counter = countdown(5)
+print(next(counter))  # Output: 5
+print(next(counter))  # Output: 4
+print(next(counter))  # Output: 3
+```
+
+#### **Example: Fibonacci Sequence Generator**
+```python
 def fibonacci(n: int):
     a, b = 0, 1
-    while a < n:
+    for _ in range(n):
         yield a
         a, b = b, a + b
 
-# Example usage:
-for num in fibonacci(50):
+# Using the generator
+for num in fibonacci(7):
     print(num, end=" ")
+# Output: 0 1 1 2 3 5 8
 ```
 
-### **Practical Use Cases:**  
-- **Decorators:** For logging, access control, performance measurement, and caching.
-- **Generators:** Processing large datasets, streaming data, and implementing pipelines.
-- **Closures:** Capturing state and creating function factories.
-- **Higher-Order Functions:** Passing behavior as parameters (e.g., callbacks).
+#### **Practical Use Cases**
+- **Processing large files line by line** (e.g., reading logs).  
+- **Streaming data in real-time applications**.  
+- **Generating infinite sequences without running out of memory**. 
+
+### **Conclusion**
+
+These four concepts **enhance Python's flexibility and efficiency**:
+
+✅ **Higher-Order Functions** → Make code reusable.  
+✅ **Closures** → Remember values even after function execution.  
+✅ **Decorators** → Modify functions dynamically.  
+✅ **Generators** → Handle large data efficiently.  
 
 ---
+
 
 ## 3. Map, Filter, and Reduce
 
