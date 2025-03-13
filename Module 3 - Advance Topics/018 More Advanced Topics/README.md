@@ -17,6 +17,20 @@ Comprehensions provide a concise way to create collections (lists, dictionaries,
 
 ### **Syntax & Examples:**
 
+#### **General Syntax for List Comprehensions**
+
+```python
+[ expression for item in iterable if condition ]
+```
+
+For nested comprehensions, you can add additional `for` clauses:
+
+```python
+[ expression for item1 in iterable1 for item2 in iterable2 if condition ]
+```
+
+---
+
 #### **List Comprehension**
 ```python
 # Create a list of squares from 0 to 9
@@ -54,6 +68,138 @@ for cube in cubes:
 - Filtering and transforming data from lists or files.
 - Quickly generating collections for further processing.
 - Memory-efficient iteration with generator expressions.
+
+### More Examples
+
+Here are some more advanced examples for different applications of list comprehensions. 
+
+### **Example 1: Nested List Comprehension with a Condition**
+
+Suppose we have a matrix (a list of lists) and we want to flatten it while filtering out only the odd numbers:
+
+```python
+# Define a matrix (list of lists)
+matrix = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]
+
+# Flatten the matrix and select only odd numbers
+flattened_odds = [num for row in matrix for num in row if num % 2 == 1]
+
+print("Flattened Odds:", flattened_odds)
+# Output: Flattened Odds: [1, 3, 5, 7, 9]
+```
+
+**Explanation:**  
+- The outer loop iterates over each `row` in `matrix`.
+- The inner loop iterates over each `num` in the `row`.
+- The condition `if num % 2 == 1` filters out even numbers, keeping only odd ones.
+
+---
+
+### **Example 2: Nested Dictionary Comprehension with a Condition**
+
+Imagine we want to create a dictionary where the keys are numbers (1 to 5) and the values are lists of their multiples up to 10× the key, but only include the even multiples.
+
+```python
+# Dictionary comprehension with nested list comprehension
+multiples = {
+    x: [y for y in range(x, x * 10 + 1, x) if y % 2 == 0]
+    for x in range(1, 6)
+}
+
+print("Even Multiples Dictionary:", multiples)
+# Possible Output:
+# Even Multiples Dictionary: {1: [2, 4, 6, 8, 10], 2: [2, 4, 6, 8, 10, 12, 14, 16, 18, 20], ...}
+```
+
+**Explanation:**  
+- The outer dictionary comprehension iterates over numbers `x` from 1 to 5.
+- For each `x`, a list comprehension generates multiples of `x` (using `range(x, x * 10 + 1, x)`).
+- The inner condition `if y % 2 == 0` ensures only even multiples are included in the list.
+
+---
+
+### **Example 3: Categorizing Names by Initial Letter**  
+Suppose we have a list of names, and we want to group them by their starting letter.
+
+```python
+# List of names
+names = ["Alice", "Arham", "Bilal", "Ayesha", "Babar", "Charlie", "Catherine", "Ali"]
+
+# Dictionary comprehension to group names by first letter
+name_groups = {letter: [name for name in names if name.startswith(letter)] for letter in "ABC"}
+
+print(name_groups)
+```
+
+**Output:**
+```python
+{'A': ['Alice', 'Arham', 'Ayesha', 'Ali'], 'B': ['Bilal', 'Babar'], 'C': ['Charlie', 'Catherine']}
+```
+
+**Explanation:**
+- The dictionary comprehension iterates over `"ABC"` (keys).
+- The values are lists created using **list comprehension** that filters names based on their starting letter (`name.startswith(letter)`).
+
+---
+
+### **Example 4: Word Frequency Counter Using Dictionary Comprehension**  
+We can count word occurrences in a given sentence.
+
+```python
+# Sample text
+text = "apple banana apple cherry banana apple cherry cherry"
+
+# Split text into words
+words = text.split()
+
+# Dictionary comprehension to count word frequency
+word_count = {word: words.count(word) for word in set(words)}
+
+print(word_count)
+```
+
+**Output:**
+```python
+{'banana': 2, 'apple': 3, 'cherry': 3}
+```
+
+**Explanation:**
+- We create a **set** of words (to get unique words).
+- We iterate over this set and count occurrences using `words.count(word)`.
+- The dictionary comprehension stores words as keys and their counts as values.
+
+---
+
+### **Example 5: Creating a Dictionary from a List of Pairs**  
+Suppose we have a list of tuples representing student names and their scores, and we want to convert it into a dictionary.
+
+```python
+# List of tuples (name, score)
+students = [("Alice", 85), ("Bob", 92), ("Charlie", 78), ("Alice", 90), ("Bob", 88)]
+
+# Dictionary comprehension to store latest score of each student
+student_scores = {name: score for name, score in students}
+
+print(student_scores)
+```
+
+**Output:**
+```python
+{'Alice': 90, 'Bob': 88, 'Charlie': 78}
+```
+
+**Explanation:**
+- The dictionary comprehension iterates over `(name, score)` tuples.
+- Since dictionaries do not allow duplicate keys, the last encountered score for each student remains in the final dictionary.
+
+---
+
+### **Conclusion**
+Dictionary comprehensions are powerful for **grouping, filtering, and transforming** text-based data efficiently. Whether it's categorizing names, counting words, or converting lists into structured data, they provide a concise and readable solution. 🚀
 
 ---
 
