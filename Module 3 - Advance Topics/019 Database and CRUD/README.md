@@ -260,4 +260,8 @@ This query selects the names and ages of students older than 14 along with their
 
 This tutorial provided a detailed guide on setting up an SQLite database, configuring tables with relationships, and performing CRUD operations using SQL queries in Python. With this knowledge, you'll be able to design and implement database-driven applications. Happy coding, and enjoy working with SQLite!
 
+## 10. Further Reading
+1. [A short Tutorial on SQL Queries](https://github.com/wasiqs-classics/Python-Lectures-Github/blob/master/Module%203%20-%20Advance%20Topics/019%20Database%20and%20CRUD/SQL_Intro.md)
+2. [Geeks for Geeks Python Database Resources](https://www.geeksforgeeks.org/python-database-tutorial/)
+
 [![Prev Lecture](../../Previous.png)](https://github.com/wasiqs-classics/Python-Lectures-Github/tree/master/Module%203%20-%20Advance%20Topics/018%20More%20Advanced%20Topics)       [![Next Lecture](../../Next.png)](https://github.com/wasiqs-classics/Python-Lectures-Github/tree/master/Module%203%20-%20Advance%20Topics/020%20GUI%20Programming)
